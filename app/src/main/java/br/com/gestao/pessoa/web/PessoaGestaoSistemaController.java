@@ -31,4 +31,13 @@ public class PessoaGestaoSistemaController {
         return ResponseEntity.ok().body(pessoaGestaoSistemaResponses);
     }
 
+    @GetMapping("{idPessoa}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity getBuscaFuncionarioPorIdPessoa(final Integer idPessoa) {
+        List<PessoaGestaoSistemaDTO> pessoaGestaoSistema =
+                getPessoaGestaoSistemaUseCasePort.getPessoaGestaoSistema();
+        List<PessoaGestaoSistemaResponse> pessoaGestaoSistemaResponses =
+                PessoaGestaoSistemaMapper.INSTANCE.mapToResponse(pessoaGestaoSistema);
+        return ResponseEntity.ok().body(pessoaGestaoSistemaResponses);
+    }
 }
