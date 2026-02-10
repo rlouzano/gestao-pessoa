@@ -22,4 +22,11 @@ public class GetPessoaGestaoUseCaseImpl implements GetPessoaGestaoSistemaUseCase
                 pessoaGestaoSistemaUseCase.getBuscaTodosFuncionariosPessoaGestaoSistema();
         return PessoGestaoSistemaMapper.INSTANCE.mapToDto(pessoaGestaoSistemaEntities);
     }
+
+    @Override
+    public PessoaGestaoSistemaDTO getPessoaGestaoSistemaPorIdPessoa(final Integer idPessoa) {
+        PessoaGestaoSistemaEntity pessoaGestaoSistemaEntities =
+                pessoaGestaoSistemaUseCase.getBuscaFuncionarioPorId0PessoaGestaoSistema(idPessoa);
+        return PessoGestaoSistemaMapper.INSTANCE.mapToDto(pessoaGestaoSistemaEntities);
+    }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 public interface GetPessoaGestaoSistemaUseCasePort {
 
     List<PessoaGestaoSistemaDTO> getPessoaGestaoSistema();
+
+    PessoaGestaoSistemaDTO getPessoaGestaoSistemaPorIdPessoa(final Integer idPessoa);
 }

@@ -11,6 +11,8 @@ public interface PessoaGestaoSistemaUseCase {
 
     PessoaGestaoSistemaEntity getBuscaFuncionarioPorId0PessoaGestaoSistema(final Integer idPessoa);
 
+    PessoaGestaoSistemaEntity createFuncionarioPessoaGestaoSistema(final PessoaGestaoSistemaEntity pessoaGestaoSistemaEntity);
+
     PessoaGestaoSistemaEntity updateFuncionarioPessoaGestaoSistema(final PessoaGestaoSistemaEntity pessoaGestaoSistemaEntity);
 
     PessoaGestaoSistemaEntity deleteFuncionarioPessoaGestaoSistema(final PessoaGestaoSistemaEntity pessoaGestaoSistemaEntity);

@@ -25,6 +25,8 @@ public class PessoaGestaoSistemaEntity {
     private LocalDate dataAdminssao;
     private LocalDate dataDesligamento;
     private Boolean indicadorPessoaAtiva;
+    private LocalDate dataInclusao;
+    private LocalDate dataAtualizacao;
 
     @OneToMany(mappedBy = "pessoaGestaoSistemaEntity", cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.TRUE)

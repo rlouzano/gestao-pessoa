@@ -1,7 +1,7 @@
 package br.com.gestao.pessoa.web.mapper;
 
 import br.com.gestao.pessoa.domain.dto.PessoaGestaoSistemaDTO;
-import br.com.gestao.pessoa.web.dto.response.PessoaGestaoSistemaResponse;
+import br.com.gestao.pessoa.web.response.PessoaGestaoSistemaResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.NullValuePropertyMappingStrategy;
