@@ -1,4 +1,4 @@
-package br.com.gestao.pessoa.web.dto.response;
+package br.com.gestao.pessoa.web.response;
 
 import br.com.gestao.pessoa.entity.enums.TipoDocumentoSistema;
 import lombok.Getter;

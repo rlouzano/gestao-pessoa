@@ -1,4 +1,4 @@
-package br.com.gestao.pessoa.service.implemation;
+package br.com.gestao.pessoa.service.adapter;
 
 import br.com.gestao.pessoa.domain.dto.PessoaGestaoSistemaDTO;
 import br.com.gestao.pessoa.entity.PessoaGestaoSistemaEntity;
@@ -19,7 +19,14 @@ public class GetPessoaGestaoUseCaseImpl implements GetPessoaGestaoSistemaUseCase
     @Override
     public List<PessoaGestaoSistemaDTO> getPessoaGestaoSistema() {
         List<PessoaGestaoSistemaEntity> pessoaGestaoSistemaEntities =
-                pessoaGestaoSistemaUseCase.getPessoaGestaoSistema();
+                pessoaGestaoSistemaUseCase.getBuscaTodosFuncionariosPessoaGestaoSistema();
+        return PessoGestaoSistemaMapper.INSTANCE.mapToDto(pessoaGestaoSistemaEntities);
+    }
+
+    @Override
+    public PessoaGestaoSistemaDTO getPessoaGestaoSistemaPorIdPessoa(final Integer idPessoa) {
+        PessoaGestaoSistemaEntity pessoaGestaoSistemaEntities =
+                pessoaGestaoSistemaUseCase.getBuscaFuncionarioPorId0PessoaGestaoSistema(idPessoa);
         return PessoGestaoSistemaMapper.INSTANCE.mapToDto(pessoaGestaoSistemaEntities);
     }
 }
