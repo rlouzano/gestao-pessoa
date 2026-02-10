@@ -55,7 +55,7 @@ public class PessoaGestaoUseCaseImpl implements PessoaGestaoSistemaUseCase {
             final PessoaGestaoSistemaEntity pessoaGestaoSistemaEntity) {
         return pessoaGestaoSistemaRepository.findByIdPessoa(pessoaGestaoSistemaEntity.getCodigoPessoaSistema())
                 .map(pessoaExistente -> {
-                    PessoaGestaoMapper.INSTANCE.deletePessoaLogica(pessoaExistente);
+                    PessoaGestaoMapper.INSTANCE.deletePessoaLogica(pessoaGestaoSistemaEntity,pessoaExistente);
                     return pessoaGestaoSistemaRepository.save(pessoaExistente);
                 })
                 .orElseThrow(() -> new Response404Exception("People not found."));
