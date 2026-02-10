@@ -10,12 +10,14 @@ public abstract class PessoaGestaoMapper {
 
     public static final PessoaGestaoMapper INSTANCE = Mappers.getMapper(PessoaGestaoMapper.class);
 
+    @Mapping(target = "codigoPessoaSistema", ignore = true)
+    @Mapping(target = "dataInclusao", ignore = true)
     @Mapping(target = "dataAtualizacao", expression = "java(java.time.LocalDate.now())")
     public abstract void updatePessoaFromEntity(PessoaGestaoSistemaEntity source, @MappingTarget PessoaGestaoSistemaEntity target);
-
 
     @Mapping(target = "indicadorPessoaAtiva", constant = "false")
     @Mapping(target = "dataDesligamento", expression = "java(java.time.LocalDate.now())")
     @Mapping(target = "dataAtualizacao", expression = "java(java.time.LocalDate.now())")
-    public abstract void deletePessoaLogica(@MappingTarget PessoaGestaoSistemaEntity target);
+    public abstract void deletePessoaLogica(PessoaGestaoSistemaEntity source, @MappingTarget PessoaGestaoSistemaEntity target);
+
 }
