@@ -7,6 +7,7 @@ COPY . /usr/src/app
 #Defina o diretorio de trabalho
 WORKDIR /usr/src/app
 
+
 #Construa o projeto com Maven
 RUN mvn clean install
 
