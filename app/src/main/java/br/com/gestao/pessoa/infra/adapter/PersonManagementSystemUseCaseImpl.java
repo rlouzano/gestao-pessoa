@@ -1,6 +1,7 @@
 package br.com.gestao.pessoa.infra.adapter;
 
 import br.com.gestao.pessoa.entity.PersonManagementSystemEntity;
+import br.com.gestao.pessoa.exception.Response400Exception;
 import br.com.gestao.pessoa.exception.Response404Exception;
 import br.com.gestao.pessoa.infra.mapper.PersonManagementSystemMapper;
 import br.com.gestao.pessoa.infra.repository.PersonManagementSystemRepository;
@@ -24,13 +25,13 @@ public class PersonManagementSystemUseCaseImpl implements PersonManagementSystem
         if (CollectionUtils.isNotEmpty(personManagementSystemEntities)) {
             return personManagementSystemEntities;
         }
-        throw new Response404Exception("List of people not found.");
+        throw new Response400Exception("List of people not found.");
     }
 
     @Override
     public PersonManagementSystemEntity getPersonByIdManagementSystem(final Integer personId) {
         return personManagementSystemRepository.findByIdPerson(personId)
-                .orElseThrow(() -> new Response404Exception("People not found."));
+                .orElseThrow(() -> new Response400Exception("People not found."));
     }
 
     @Override
@@ -47,7 +48,7 @@ public class PersonManagementSystemUseCaseImpl implements PersonManagementSystem
                     PersonManagementSystemMapper.INSTANCE.updatePersonFromEntity(personManagementSystemEntity, personExisting);
                     return personManagementSystemRepository.save(personExisting);
                 })
-                .orElseThrow(() -> new Response404Exception("People not found."));
+                .orElseThrow(() -> new Response400Exception("People not found."));
     }
 
     @Override
@@ -58,7 +59,7 @@ public class PersonManagementSystemUseCaseImpl implements PersonManagementSystem
                     PersonManagementSystemMapper.INSTANCE.deletePersonLogical(personManagementSystemEntity, personExisting);
                     return personManagementSystemRepository.save(personExisting);
                 })
-                .orElseThrow(() -> new Response404Exception("People not found."));
+                .orElseThrow(() -> new Response400Exception("People not found."));
     }
 
 }
